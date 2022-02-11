@@ -8,6 +8,7 @@
 </head>
 <body>
     <form class="form" action="results.html" method="GET">
+        <h1>Register now</h1>
 
         <div>
         <label for="username">Username</label>
@@ -22,6 +23,11 @@
         <div>
         <label for="password">Password</label>
         <input required name="password" type="password" required>
+        <span style="color:red;">
+        <div class="needsNumber">* Your password needs atleast 1 number</div>
+        <div class="needsUppercase">* Your password needs atleast 1 Uppercase character</div>
+        <div class="needsSymbol">* Your password needs atleast 1 Symbol</div>
+        </span>
         </div>
 
         <div>
