@@ -7,15 +7,26 @@
     <title>Form</title>
 </head>
 <body>
-    <form action="results.html" method="GET">
-        
+    <form class="form" action="results.html" method="GET">
+
         <div>
-        <label for="name">Username</label>
-        <input required name="name" type="text" id="name">
+        <label for="username">Username</label>
+        <input required name="username" type="text" id="username" required>
         </div>
 
-        <label for="">Password</label>
-        <input required name="password" type="password">
+        <div>
+            <label for="email">Your email</label>
+            <input type="email" name="email" id="email" required>
+        </div>
+
+        <div>
+        <label for="password">Password</label>
+        <input required name="password" type="password" required>
+        </div>
+
+        <div>
+            <label for="confirmPassword">Confirm your password</label>
+            <input type="password" name="confirmPassword" id="confirmPassword" required>
         </div>
 
         <div>
@@ -24,5 +35,7 @@
         </div>
 
     </form>
+
+    <script src="./main.js"></script>
 </body>
 </html>
