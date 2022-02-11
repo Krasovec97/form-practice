@@ -1,16 +1,28 @@
 <!DOCTYPE html>
-<html lang="en-US">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Today's Date</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
 </head>
-
 <body>
+    <form action="results.html" method="GET">
+        
+        <div>
+        <label for="name">Username</label>
+        <input required name="name" type="text" id="name">
+        </div>
 
-    
-<script src="main.js"></script>
+        <label for="">Password</label>
+        <input required name="password" type="password">
+        </div>
+
+        <div>
+            <button type="reset">Reset</button>
+            <button type="submit">Submit</button>
+        </div>
+
+    </form>
 </body>
-
 </html>
