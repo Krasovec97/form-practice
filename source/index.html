@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Form</title>
 </head>
 <body>
@@ -22,11 +23,11 @@
 
         <div>
         <label for="password">Password</label>
-        <input required name="password" type="password" required>
+        <input oninput="ErrorCheck()" required id="password" name="password" type="password" required>
         <span style="color:red;">
-        <div class="needsNumber">* Your password needs atleast 1 number</div>
-        <div class="needsUppercase">* Your password needs atleast 1 Uppercase character</div>
-        <div class="needsSymbol">* Your password needs atleast 1 Symbol</div>
+        <div id="needsNumber">* Your password needs atleast 1 number</div>
+        <div id="needsUppercase">* Your password needs atleast 1 Uppercase character</div>
+        <div id="needsSymbol">* Your password needs atleast 1 Symbol</div>
         </span>
         </div>
 
