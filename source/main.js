@@ -13,12 +13,11 @@ const submitBtn = document.querySelector('#submitBtn');
 
 submitBtn.disabled = true;
 
-const submitConditions = [
-    emailTrue = false,
-    okPassword = false,
-    passwordMatch = false,
-
-]
+const submitConditions = {
+    emailTrue: false,
+    okPassword: false,
+    passwordMatch: false,
+};
 
 const errorMessage = [
     {
@@ -47,7 +46,7 @@ function EmailCheck() {
     validEmail.classList.toggle("hiddenItem", emailValidate.test(emailInput.value))
 
     if(emailValidate.test(emailInput.value)) {        
-        submitConditions[0] = true;       
+        submitConditions.emailTrue = true;      
     }
 }
 
@@ -57,7 +56,7 @@ function PasswordCheck() {
         errorElement.classList.toggle("hiddenItem", testProperty.test(passwordInput.value));
     })
     if(strongPass.test(passwordInput.value)) {
-        submitConditions[1] = true;          
+        submitConditions.okPassword = true;        
     }
 }
 
@@ -65,19 +64,15 @@ function ConfirmPasswords() {
     matchPasswordsError.classList.toggle("hiddenItem", passwordInput.value === confirmPassword.value);
 
     if (passwordInput.value === confirmPassword.value){
-        submitConditions[2] = true; 
+        submitConditions.passwordMatch = true;
             
     }
 }
 
-function ShowErrors() {
-    errorMessage.forEach(({errorElement, testProperty}) => {
-        errorElement.classList.toggle("hiddenItem", testProperty.test(passwordInput.value));
-    })
-}
-
 function FormReadyToSend() {
-    if(submitConditions.every((condition) => condition === true)) {
-        submitBtn.disabled = false;
+    for (const value of Object.entries(submitConditions)) {
+        if (value) {
+            submitBtn.disabled = false;
+        }
     }
 }
