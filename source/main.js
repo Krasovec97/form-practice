@@ -70,9 +70,5 @@ function ConfirmPasswords() {
 }
 
 function FormReadyToSend() {
-    for (const value of Object.entries(submitConditions)) {
-        if (value) {
-            submitBtn.disabled = false;
-        }
-    }
+    submitBtn.disabled = !Object.values(submitConditions).every((condition) => !!condition)
 }
