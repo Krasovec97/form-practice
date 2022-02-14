@@ -81,7 +81,3 @@ function FormReadyToSend() {
         submitBtn.disabled = false;
     }
 }
-
-function resetButton() {
-    submitBtn.disabled = true;
-}
