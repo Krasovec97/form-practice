@@ -3,14 +3,18 @@ const confirmPassword = document.querySelector("#confirmPassword");
 const emailInput = document.querySelector("#email");
 
 const strongPass = new RegExp('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,}$');
-const emailValidate = new RegExp('^[^\s@]+@[^\s@]+\.[^\s@]+$');
-const matchPasswordsError = document.querySelector("#mustMatchPassword");
+const emailValidate = new RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
 
-const submitBtn = document.querySelector('#submitBtn')
+const matchPasswordsError = document.querySelector("#mustMatchPassword");
+const validEmail = document.querySelector('#validEmail');
+
+const submitBtn = document.querySelector('#submitBtn');
+
 
 submitBtn.disabled = true;
 
 const submitConditions = [
+    emailTrue = false,
     okPassword = false,
     passwordMatch = false,
 
@@ -40,8 +44,11 @@ const errorMessage = [
 ]
 
 function EmailCheck() {
-    console.log(emailInput.value)
-    console.log(emailValidate.test(emailInput.value));
+    validEmail.classList.toggle("hiddenItem", emailValidate.test(emailInput.value))
+
+    if(emailValidate.test(emailInput.value)) {        
+        submitConditions[0] = true;       
+    }
 }
 
 function PasswordCheck() {
@@ -50,15 +57,16 @@ function PasswordCheck() {
         errorElement.classList.toggle("hiddenItem", testProperty.test(passwordInput.value));
     })
     if(strongPass.test(passwordInput.value)) {
-        console.log('Password is ok!')
+        submitConditions[1] = true;          
     }
 }
 
-function confirmPasswords() {
+function ConfirmPasswords() {
     matchPasswordsError.classList.toggle("hiddenItem", passwordInput.value === confirmPassword.value);
 
     if (passwordInput.value === confirmPassword.value){
-        console.log("Passwords match!")        
+        submitConditions[2] = true; 
+            
     }
 }
 
@@ -66,4 +74,10 @@ function ShowErrors() {
     errorMessage.forEach(({errorElement, testProperty}) => {
         errorElement.classList.toggle("hiddenItem", testProperty.test(passwordInput.value));
     })
+}
+
+function FormReadyToSend() {
+    if(submitConditions.every((condition) => condition === true)) {
+        submitBtn.disabled = false;
+    }
 }

@@ -12,12 +12,12 @@
         <h1>Register now</h1>
 
         <div>
-        <label for="username">Username</label>
+        <label for="username">Username <span style="color: red">*</span></label>
         <input required name="username" type="text" id="username" required>
         </div>
 
         <div>
-            <label for="email">Your email</label>
+            <label for="email">Your email <span style="color: red">*</span></label>
             <input onchange="EmailCheck()" type="email" name="email" id="email" required>
             <span style="color: red;">
             <div id="validEmail" class="hiddenItem">* Please enter a valid email!</div>
@@ -25,7 +25,7 @@
         </div>
 
         <div>
-        <label for="password">Password</label>
+        <label for="password">Password <span style="color: red">*</span></label>
         <input oninput="PasswordCheck()" onfocus="ShowErrors()" required id="password" name="password" type="password" required>
         <span style="color:red;">
         <div id="needsNumber" class="hiddenItem">* Your password needs atleast 1 number!</div>
@@ -37,8 +37,8 @@
         </div>
 
         <div>
-            <label for="confirmPassword">Confirm your password</label>
-            <input onchange="confirmPasswords()" type="password" name="confirmPassword" id="confirmPassword" required>
+            <label for="confirmPassword">Confirm your password <span style="color: red">*</span></label>
+            <input onchange="ConfirmPasswords()" onblur="FormReadyToSend()" type="password" name="confirmPassword" id="confirmPassword" required>
             <span style="color:red;">
                 <div id="mustMatchPassword" class="hiddenItem">* The password does not match!</div>
             </span>
